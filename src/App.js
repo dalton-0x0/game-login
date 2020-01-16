@@ -21,9 +21,10 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      userInput: "",
       route: "signin",
       isSignedIn: false,
+      name: "Jimmy",
+      score: 2050,
       user: {
         id: "",
         name: "",
@@ -40,15 +41,10 @@ class App extends Component {
         id: data.id,
         name: data.name,
         email: data.email,
-        entries: data.entries,
+        score: data.score,
         joined: data.joined
       }
     });
-  };
-
-  onInputChange = e => {
-    console.log(e.target.value);
-    this.setState({ userInput: e.target.value });
   };
 
   onRouteChange = route => {
@@ -72,10 +68,7 @@ class App extends Component {
           {this.state.route === "home" ? (
             <div>
               <Logo />
-              <Rank
-                name={this.state.user.name}
-                entries={this.state.user.entries}
-              />
+              <Rank name={this.state.name} score={this.state.score} />
             </div>
           ) : this.state.route === "signin" ? (
             <SignIn addUser={this.addUser} onRouteChange={this.onRouteChange} />
