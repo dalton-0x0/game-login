@@ -9,10 +9,10 @@ import Particles from "react-particles-js";
 
 const particlesOptions = {
   Number: {
-    value: 90,
+    value: 190,
     density: {
       enable: true,
-      value_area: 800
+      value_area: 900
     }
   }
 };
@@ -22,8 +22,6 @@ class App extends Component {
     super();
     this.state = {
       userInput: "",
-      imageUrl: "",
-      faceBox: {},
       route: "signin",
       isSignedIn: false,
       user: {
