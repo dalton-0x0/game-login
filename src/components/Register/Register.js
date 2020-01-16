@@ -20,28 +20,9 @@ class Register extends React.Component {
     this.setState({ password: e.target.value });
   };
   onSubmitRegister = () => {
-    // this.props.addUser(user);
     this.props.onRouteChange("home");
-    // fetch("http://localhost:3030/register", {
-    //   method: "post",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify({
-    //     email: this.state.email,
-    //     password: this.state.password,
-    //     name: this.state.name
-    //   })
-    // })
-    //   .then(response => response.json())
-    //   .then(user => {
-    //     if (user) {
-    //       this.props.addUser(user);
-    //       this.props.onRouteChange("home");
-    //     }
-    //   });
-    // this.props.onRouteChange("home");
   };
   render() {
-    // const onRouteChange = this.props;
     return (
       <Fragment>
         <article className="br3 ba dark-gray b--white-40 mv4 w-100 w-100-m w-50-l mw6 center shadow-3">
