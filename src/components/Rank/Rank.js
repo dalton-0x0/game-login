@@ -4,8 +4,8 @@ const Fragment = React.Fragment;
 const Rank = ({ name, entries }) => {
   return (
     <Fragment>
-      <div className="f2 white">{`Hello ${name}! Your current rank is:`}</div>
-      <div className="f1 white">{`${entries}`}</div>
+      <div className="f1 white">{`Hello ${name}, welcome back!`}</div>
+      <div className="f2 white">{`Your current score is: ${entries}`}</div>
     </Fragment>
   );
 };
