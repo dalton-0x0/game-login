@@ -5,23 +5,51 @@ import { Logo } from "./components/Logo/Logo";
 import Rank from "./components/Rank/Rank";
 import SignIn from "./components/SignIn/SignIn";
 import Register from "./components/Register/Register";
+import Canvas from "./components/Game/Canvas";
 import Particles from "react-particles-js";
 
 const particlesOptions = {
-  Number: {
-    value: 190,
-    density: {
-      enable: true,
-      value_area: 900
+  particles: {
+    number: {
+      value: 100
+    },
+    size: {
+      value: 5
+    },
+    line_linked: {
+      shadow: {
+        enable: true,
+        color: "yellow",
+        blur: 2
+      }
+    }
+  },
+  move: {
+    speed: 50
+  },
+  interactivity: {
+    events: {
+      onhover: {
+        enable: true,
+        mode: "repulse"
+      }
     }
   }
+
+  //   Number: {
+  //     value: 190,
+  //     density: {
+  //       enable: true,
+  //       value_area: 900
+  //     }
+  //   }
 };
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      route: "signin",
+      route: "signin", // there are 4 routes: signin (default), signout, home, game
       isSignedIn: false,
       name: "Jimmy",
       score: 2050,
@@ -52,6 +80,8 @@ class App extends Component {
       this.setState({ isSignedIn: false });
     } else if (route === "home") {
       this.setState({ isSignedIn: true });
+    } else if (route === "game") {
+      this.setState({ isSignedIn: true });
     }
     this.setState({ route: route });
   };
@@ -60,7 +90,12 @@ class App extends Component {
     return (
       <Fragment>
         <div className="App">
-          <Particles className="particles" params={particlesOptions} />
+          <Particles
+            style={{ color: "red" }}
+            className="particles"
+            params={particlesOptions}
+          />
+
           <Navigation
             isSignedIn={this.state.isSignedIn}
             onRouteChange={this.onRouteChange}
@@ -72,6 +107,11 @@ class App extends Component {
             </div>
           ) : this.state.route === "signin" ? (
             <SignIn addUser={this.addUser} onRouteChange={this.onRouteChange} />
+          ) : this.state.route === "game" ? (
+            <Canvas
+              style={{ backgroundColor: "white" }}
+              onRouteChange={this.onRouteChange}
+            />
           ) : (
             <Register
               addUser={this.addUser}
